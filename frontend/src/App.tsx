@@ -2,11 +2,10 @@ import React from 'react';
 import Provider from './contexts/Provider';
 import Routing from './views/Routing';
 
-function App() {
+const App: React.FC = () => {
   return (
     <Provider>
       <Routing>
-
       </Routing>
     </Provider>
   );

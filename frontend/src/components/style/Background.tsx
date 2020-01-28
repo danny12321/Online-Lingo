@@ -1,9 +1,17 @@
 import React, { useContext } from 'react'
-import Colors from '../../contexts/Colors';
 import styled, { keyframes } from 'styled-components';
 import { darken, lighten } from 'polished';
+import Colors from '../../contexts/Colors';
 
-function Background(props) {
+interface BackgroundProps {
+    children: React.ReactNode;
+}
+
+interface BackgroundDivProps {
+    color: string;
+}
+
+function Background(props: BackgroundProps) {
     const colors = useContext(Colors);
 
     return (
@@ -29,10 +37,10 @@ const BackgroundDiv = styled.div`
     animation: ${gradient} 30s ease infinite;
     background: linear-gradient(
         -45deg, 
-        ${props => darken(0.20, props.color)},
-        ${props => props.color},
-        ${props => lighten(0.10, props.color)},
-        ${props => lighten(0.20, props.color)}
+        ${(props: BackgroundDivProps) => darken(0.20, props.color)},
+        ${(props: BackgroundDivProps) => props.color},
+        ${(props: BackgroundDivProps) => lighten(0.10, props.color)},
+        ${(props: BackgroundDivProps) => lighten(0.20, props.color)}
     );
     background-size: 400% 400%;
     min-height: 100vh;

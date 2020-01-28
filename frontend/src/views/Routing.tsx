@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { ReactNode } from 'react'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Home from './home/Home';
-import { Background } from '../components/style';
+import Background from '../components/style/Background';
 
-function Routing(props) {
+type RoutingProps = {
+    children: React.ReactNode;
+}
+
+function Routing(props: RoutingProps) {
     return (
         <Background>
             <Router>
@@ -19,4 +23,5 @@ function Routing(props) {
     )
 }
 
-export default Routing;
+export default Routing
+
